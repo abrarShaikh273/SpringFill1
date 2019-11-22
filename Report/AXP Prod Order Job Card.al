@@ -1,9 +1,9 @@
-report 50102 "Prod. Order - Job Card Updated"
+report 50102 "AXP Prod. Order - Job Card"
 {
     // version NAVW111.00,NAVNA11.00
 
     DefaultLayout = RDLC;
-    RDLCLayout = './Prod. Order - Job Card Test.rdlc';
+    RDLCLayout = './Report/AXP Prod. Order - Job Card.rdlc';
     CaptionML = ENU = 'Prod. Order - Job Card',
                 ESM = 'Ord. prod. - Ficha trabajo',
                 FRC = 'Bon de production - Fiche de projet',

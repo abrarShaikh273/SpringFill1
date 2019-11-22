@@ -1,9 +1,9 @@
-report 50103 "Picking List by Order Updated"
+report 50103 "AXP Picking List by Order (U)"
 {
     // version NAVNA11.00
 
     DefaultLayout = RDLC;
-    RDLCLayout = './Picking List by Order test.rdlc';
+    RDLCLayout = './Report/AXP Picking List by Order (Updated).rdlc';
     CaptionML = ENU = 'Picking List by Order',
                 ESM = 'List. picking por ped.',
                 FRC = 'Bon de cueillette par commande',
