@@ -1,0 +1,26 @@
+{
+  "id": "a8d5e4e4-010d-4864-8ad3-0b4d3ffe4c53",
+  "name": "AXP Reports",
+  "publisher": "Abrar Ahmed Shaikh",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://ALProject20.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0"
+}
