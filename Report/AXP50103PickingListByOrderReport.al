@@ -285,6 +285,10 @@ report 50103 "AXP Picking List by Order"
 
                             trigger OnAfterGetRecord();
                             begin
+                                //Skip Process Fee Sales Line
+                                IF "No." = 'PROCESS' THEN
+                                    CurrReport.Skip();
+
                                 Item.GET("No.");
                                 IF Item."Item Tracking Code" <> '' THEN
                                     WITH TrackSpec2 DO BEGIN
