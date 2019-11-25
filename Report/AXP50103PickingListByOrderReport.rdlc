@@ -1954,7 +1954,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.49992in</Height>
+                  <Height>0.18742in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -3558,7 +3558,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>4.19503in</Height>
+            <Height>3.88253in</Height>
             <Width>8.09646in</Width>
             <Style />
           </Tablix>
