@@ -3,7 +3,7 @@ report 50100 "Standard Sales - Order new"
     // version NAVW111.00,NAVNA11.00
 
     //RDLCLayout = './Standard Sales - Order Conf..rdlc';
-    WordLayout = './Report/AXP Sales - Order Conf.docx';
+    WordLayout = './Report/AXP50100OrderConfirmationReport.docx';
     CaptionML = ENU = 'Sales - Confirmation',
                 ESM = 'Venta - Confirmación',
                 FRC = 'Ventes - Confirmation',
@@ -577,7 +577,13 @@ report 50100 "Standard Sales - Order new"
                             ItemCrossReference.SetFilter("Cross-Reference Type", '%1', "Cross-Reference Type"::Customer);
                             ItemCrossReference.SetFilter("Cross-Reference Type No.", '%1', Header."Bill-to Customer No.");
                             if ItemCrossReference.FindFirst() then
-                                CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                                CrossReferenceNo := ItemCrossReference."Cross-Reference No."
+                            else begin
+                                ItemCrossReference.Reset();
+                                ItemCrossReference.SetRange("Item No.", "No.");
+                                if ItemCrossReference.FindFirst() then
+                                    CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                            end;
                         end
                         else
                             if ItemCrossReference.FindFirst() then
