@@ -485,6 +485,11 @@ report 50100 "Standard Sales - Order new"
                 column(LineAmount_Lbl; LineAmountLbl)
                 {
                 }
+                column(Cross_Reference_No_; CrossReferenceNo)
+                {
+
+
+                }
                 dataitem(AssemblyLine; 901)
                 {
                     DataItemTableView = SORTING("Document No.", "Line No.");
@@ -517,22 +522,22 @@ report 50100 "Standard Sales - Order new"
                         SETRANGE("Document No.", AsmHeader."No.");
                     end;
                 }
-                dataitem(ItemCrossReference; 5717)
-                {
-                    DataItemTableView = SORTING("Cross-Reference No.");
-                    //DataItemLink = "Item No."=FIELD("No.");
-                    column(Cross_Reference_No_; "Cross-Reference No.")
-                    {
-                    }
-                    
+                // dataitem(ItemCrossReference; 5717)
+                // {
+                //     DataItemTableView = SORTING("Cross-Reference No.");
+                //     //DataItemLink = "Item No."=FIELD("No.");
+                //     column(Cross_Reference_No_; CrossReferenceNo)
+                //     {
+                //     }
 
-                    trigger OnPreDataItem();
-                    begin
-                        IF Line.Type <> Line.Type::Item THEN
-                            CurrReport.BREAK;
-                        SETRANGE("Item No.", Line."No.");
-                    end;
-                }
+
+                //     trigger OnPreDataItem();
+                //     begin
+                //         IF Line.Type <> Line.Type::Item THEN
+                //             CurrReport.BREAK;
+                //         SETRANGE("Item No.", Line."No.");
+                //     end;
+                // }
 
                 trigger OnAfterGetRecord();
                 begin
@@ -563,6 +568,21 @@ report 50100 "Standard Sales - Order new"
                     IF FirstLineHasBeenOutput THEN
                         CLEAR(CompanyInfo.Picture);
                     FirstLineHasBeenOutput := TRUE;
+
+                    Clear(CrossReferenceNo);
+                    If (Type = Type::Item) then begin
+                        ItemCrossReference.Reset();
+                        ItemCrossReference.SetRange("Item No.", "No.");
+                        if ItemCrossReference.FindSet() then begin
+                            ItemCrossReference.SetFilter("Cross-Reference Type", '%1', "Cross-Reference Type"::Customer);
+                            ItemCrossReference.SetFilter("Cross-Reference Type No.", '%1', Header."Bill-to Customer No.");
+                            if ItemCrossReference.FindFirst() then
+                                CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                        end
+                        else
+                            if ItemCrossReference.FindFirst() then
+                                CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                    end;
                 end;
 
                 trigger OnPreDataItem();
@@ -1170,6 +1190,8 @@ report 50100 "Standard Sales - Order new"
         UnitPriceLbl: TextConst ENU = 'Unit Price', ESM = 'Precio unitario', FRC = 'Prix unitaire', ENC = 'Unit Price';
         LineAmountLbl: TextConst ENU = 'Line Amount', ESM = 'Importe línea', FRC = 'Montant ligne', ENC = 'Line Amount';
         SalespersonLbl2: TextConst ENU = 'Salesperson', ESM = 'Vendedor', FRC = 'Représentant', ENC = 'Salesperson';
+        ItemCrossReference: Record "Item Cross Reference";
+        CrossReferenceNo: code[20];
 
     local procedure InitLogInteraction();
     begin
