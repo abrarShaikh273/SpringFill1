@@ -2,8 +2,8 @@ report 50104 "AXP Standard Purchase - Order"
 {
     // version NAVW111.00,NAVNA11.00
 
-    RDLCLayout = './Report/AXP Standard Purchase - Order.rdlc';
-    WordLayout = './Report/AXP Standard Purchase - Order.docx';
+    RDLCLayout = './Report/AXP50104StandardPurchaseOrderReport.rdlc';
+    WordLayout = './Report/AXP50104StandardPurchaseOrderReport.docx';
     CaptionML = ENU = 'Purchase - Order',
                 ESM = 'Compra - Pedido',
                 FRC = 'Achat - Commande',
@@ -418,6 +418,18 @@ report 50104 "AXP Standard Purchase - Order"
             {
             }
             column(OrderDate_Lbl; OrderDateLbl)
+            {
+            }
+            column(VendorOrderNo; "Vendor Order No.")
+            {
+            }
+            column(VendorInvoiceNo; "Vendor Invoice No.")
+            {
+            }
+            column(VendorInvoiceNo_Lbl; VendorInvoiceNo_Lbl)
+            {
+            }
+            column(VendorOrderNo_Lbl; VendorOrderNo_Lbl)
             {
             }
             dataitem("Purchase Line"; "Purchase Line")
@@ -1071,6 +1083,8 @@ report 50104 "AXP Standard Purchase - Order"
         VATDiscountAmountCaptionLbl: TextConst ENU = 'Payment Discount on Tax', ESM = 'Descuento P.P. sobre IVA', FRC = 'Escompte de paiement sur TVA', ENC = 'Payment Discount on Tax';
         PaymentDetailsCaptionLbl: TextConst ENU = 'Payment Details', ESM = 'Detalles del pago', FRC = 'Détail paiement', ENC = 'Payment Details';
         VendNoCaptionLbl: TextConst ENU = 'Vendor No.', ESM = 'N.º proveedor', FRC = 'N° fournisseur', ENC = 'Vendor No.';
+        VendorInvoiceNo_Lbl: TextConst ENU = 'Vendor Invoice No.';
+        VendorOrderNo_Lbl: TextConst ENU = 'Vendor Order No.';
         ShiptoAddressCaptionLbl: TextConst ENU = 'Ship-to Address', ESM = 'Dirección de envío', FRC = 'Adresse de livraison', ENC = 'Ship-to Address';
         PrepmtInvBuDescCaptionLbl: TextConst ENU = 'Description', ESM = 'Descripción', FRC = 'Description', ENC = 'Description';
         PrepmtInvBufGLAccNoCaptionLbl: TextConst ENU = 'G/L Account No.', ESM = 'Nº cuenta', FRC = 'N° de compte du grand livre', ENC = 'G/L Account No.';
@@ -1196,8 +1210,6 @@ report 50104 "AXP Standard Purchase - Order"
         BodyLbl: TextConst ENU = 'The purchase order is attached to this message.', ESM = 'El mensaje incluye un archivo adjunto con la orden de compra.', FRC = 'Le bon de commande est joint au présent message.', ENC = 'The purchase order is attached to this message.';
         OrderDateLbl: TextConst ENU = 'Order Date', ESM = 'Fecha de orden', FRC = 'Date commande', ENC = 'Order Date';
         PurchLineDelivDateCaptLbl: Label 'Delivery Date';
-        ShipToLocation: Text;
-        PurchHeadShipToLocationCaptLbl: Label 'Ship to Location';
 
     [Scope('Personalization')]
     procedure InitializeRequest(LogInteractionParam: Boolean);

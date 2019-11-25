@@ -3,7 +3,11 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
     // version DSHIP2.0.0
 
     DefaultLayout = RDLC;
+<<<<<<< HEAD:Report/Rep23044602.DSHIPBillofLading-Sales.al
     RDLCLayout = 'Report/DSHIP Bill of Lading-Sales.rdlc';
+=======
+    RDLCLayout = 'Report/AXP50105DShipBillOfLadingSalesReport.rdlc';
+>>>>>>> 6fd2fa1baf96d1d7bd7d7557133ea6a6b0edea56:Report/AXP50105DShipBillOfLadingSalesReport.al
     Caption = 'Dynamic Ship Bill of Lading-Sales';
 
     dataset
