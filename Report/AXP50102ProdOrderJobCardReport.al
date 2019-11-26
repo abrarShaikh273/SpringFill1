@@ -3,7 +3,7 @@ report 50102 "AXP Prod. Order - Job Card"
     // version NAVW111.00,NAVNA11.00
 
     DefaultLayout = RDLC;
-    RDLCLayout = './Report/AXP50102ProdOrderJobCardReport.rdlc';
+    RDLCLayout = './Report/AXP50102ProdOrderJobCardReport.rdl';
     CaptionML = ENU = 'Prod. Order - Job Card',
                 ESM = 'Ord. prod. - Ficha trabajo',
                 FRC = 'Bon de production - Fiche de projet',

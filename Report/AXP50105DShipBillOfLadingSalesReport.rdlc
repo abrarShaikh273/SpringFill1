@@ -3122,6 +3122,48 @@ End Function
         <Field Name="LocationCountry">
           <DataField>LocationCountry</DataField>
         </Field>
+        <Field Name="LicensePlateNo">
+          <DataField>LicensePlateNo</DataField>
+        </Field>
+        <Field Name="LicensePlateDescription">
+          <DataField>LicensePlateDescription</DataField>
+        </Field>
+        <Field Name="LicensePlateInsurance">
+          <DataField>LicensePlateInsurance</DataField>
+        </Field>
+        <Field Name="LicensePlateInsuranceFormat">
+          <DataField>LicensePlateInsuranceFormat</DataField>
+        </Field>
+        <Field Name="ShipmentLength">
+          <DataField>ShipmentLength</DataField>
+        </Field>
+        <Field Name="ShipmentLengthFormat">
+          <DataField>ShipmentLengthFormat</DataField>
+        </Field>
+        <Field Name="ShipmentWidth">
+          <DataField>ShipmentWidth</DataField>
+        </Field>
+        <Field Name="ShipmentWidthFormat">
+          <DataField>ShipmentWidthFormat</DataField>
+        </Field>
+        <Field Name="ShipmentHeight">
+          <DataField>ShipmentHeight</DataField>
+        </Field>
+        <Field Name="ShipmentHeightFormat">
+          <DataField>ShipmentHeightFormat</DataField>
+        </Field>
+        <Field Name="ShipmentWeight">
+          <DataField>ShipmentWeight</DataField>
+        </Field>
+        <Field Name="ShipmentWeightFormat">
+          <DataField>ShipmentWeightFormat</DataField>
+        </Field>
+        <Field Name="WeightUOM">
+          <DataField>WeightUOM</DataField>
+        </Field>
+        <Field Name="DimensionUOM">
+          <DataField>DimensionUOM</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

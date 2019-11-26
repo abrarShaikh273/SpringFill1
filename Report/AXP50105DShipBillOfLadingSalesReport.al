@@ -119,49 +119,49 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
                     end;
             end;
         }
-        // dataitem("LPM License Plate Header"; "IWX License Plate Header")
-        // {
-        //     CalcFields = "Source Document", "Source No.";
-        //     column(LicensePlateNo; "LPM License Plate Header"."No.")
-        //     {
-        //     }
-        //     column(LicensePlateDescription; "LPM License Plate Header".Description)
-        //     {
-        //     }
-        //     column(LicensePlateInsurance; "LPM License Plate Header"."Insurance Amount (LCY)")
-        //     {
-        //     }
-        //     column(ShipmentLength; "LPM License Plate Header"."Shipment Length")
-        //     {
-        //     }
-        //     column(ShipmentWidth; "LPM License Plate Header"."Shipment Width")
-        //     {
-        //     }
-        //     column(ShipmentHeight; "LPM License Plate Header"."Shipment Height")
-        //     {
-        //     }
-        //     column(ShipmentWeight; "LPM License Plate Header"."Shipment Gross Weight")
-        //     {
-        //     }
-        //     column(WeightUOM; "LPM License Plate Header"."Weight Unit of Measure")
-        //     {
-        //     }
-        //     column(DimensionUOM; "LPM License Plate Header"."Shpt. Dim. Unit of Measure")
-        //     {
-        //     }
+        dataitem("LPM License Plate Header"; "IWX License Plate Header")
+        {
+            CalcFields = "Source Document", "Source No.";
+            column(LicensePlateNo; "LPM License Plate Header"."No.")
+            {
+            }
+            column(LicensePlateDescription; "LPM License Plate Header".Description)
+            {
+            }
+            column(LicensePlateInsurance; "LPM License Plate Header"."Insurance Amount (LCY)")
+            {
+            }
+            column(ShipmentLength; "LPM License Plate Header"."Shipment Length")
+            {
+            }
+            column(ShipmentWidth; "LPM License Plate Header"."Shipment Width")
+            {
+            }
+            column(ShipmentHeight; "LPM License Plate Header"."Shipment Height")
+            {
+            }
+            column(ShipmentWeight; "LPM License Plate Header"."Shipment Gross Weight")
+            {
+            }
+            column(WeightUOM; "LPM License Plate Header"."Weight Unit of Measure")
+            {
+            }
+            column(DimensionUOM; "LPM License Plate Header"."Shpt. Dim. Unit of Measure")
+            {
+            }
 
-        //     trigger OnPreDataItem();
-        //     begin
-        //         if (optSourceDocument = optSourceDocument::"Warehouse Shipment") then begin
-        //             "LPM License Plate Header".SETRANGE("Source Document", "LPM License Plate Header"."Source Document"::Shipment);
-        //             "LPM License Plate Header".SETRANGE("Source No.", codSourceNo);
-        //         end else
-        //             if (optSourceDocument = optSourceDocument::"Sales Order") then begin
-        //                 "LPM License Plate Header".SETRANGE("Source Document", "LPM License Plate Header"."Source Document"::"Sales Order");
-        //                 "LPM License Plate Header".SETRANGE("Source No.", codSourceNo);
-        //             end;
-        //     end;
-        // }
+            trigger OnPreDataItem();
+            begin
+                if (optSourceDocument = optSourceDocument::"Warehouse Shipment") then begin
+                    "LPM License Plate Header".SETRANGE("Source Document", "LPM License Plate Header"."Source Document"::Shipment);
+                    "LPM License Plate Header".SETRANGE("Source No.", codSourceNo);
+                end else
+                    if (optSourceDocument = optSourceDocument::"Sales Order") then begin
+                        "LPM License Plate Header".SETRANGE("Source Document", "LPM License Plate Header"."Source Document"::"Sales Order");
+                        "LPM License Plate Header".SETRANGE("Source No.", codSourceNo);
+                    end;
+            end;
+        }
     }
 
     requestpage
