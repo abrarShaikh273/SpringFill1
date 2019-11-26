@@ -38,6 +38,9 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
             column(ShipToPostCode; "Sales Header"."Ship-to Post Code")
             {
             }
+            column(ShipToZipCode; ShipToZipCode)
+            {
+            }
             column(BillToCustomerNumber; "Sales Header"."Bill-to Customer No.")
             {
             }
@@ -63,6 +66,15 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
             {
             }
             column(BillToCountry; "Sales Header"."Bill-to Country/Region Code")
+            {
+            }
+            column(BillToState; BillToState)
+            {
+            }
+            column(ShipmentMethodCode; "Shipment Method Code")
+            {
+            }
+            column(ExternalDocumentNo; "External Document No.")
             {
             }
             column(CarrierName; txtCarrierName)
@@ -104,7 +116,15 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
             var
                 lrecShippingAgent: Record "Shipping Agent";
                 lrecShipmentHeader: Record "Warehouse Shipment Header";
+                lrecShipToAddress: Record "Ship-to Address";
+
             begin
+                IF lrecShipToAddress.Get("Sell-to Customer No.", "Ship-to Code") then
+                    ShipToZipCode := lrecShipToAddress."Post Code";
+
+                IF lrecShipToAddress.Get("Bill-to Customer No.", "Ship-to Code") then
+                    BillToState := lrecShipToAddress.County;
+
                 if (optSourceDocument = optSourceDocument::"Warehouse Shipment") then begin
                     if (lrecShipmentHeader.GET(codSourceNo)) then begin
                         if (lrecShippingAgent.GET(lrecShipmentHeader."Shipping Agent Code")) then begin
@@ -189,6 +209,9 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
         optSourceDocument: Option "Sales Order","Sales Return Order","Purchase Order","Purchase Return Order","Outbound Transfer","Service Order","Warehouse Shipment";
         codSourceNo: Code[50];
         txtCarrierName: Text;
+
+        ShipToZipCode: Text;
+        BillToState: Text;
 
     procedure setSourceDocument(poptSourceDocument: Option "Sales Order","Sales Return Order","Purchase Order","Purchase Return Order","Outbound Transfer","Service Order","Warehouse Shipment"; pcodSourceNo: Code[50]);
     begin
