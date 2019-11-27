@@ -417,6 +417,7 @@ report 50101 "AXP Standard Sales - Invoice"
             column(CustomerPONumber; "External Document No.")
             {
             }
+
             dataitem(Line; 113)
             {
                 DataItemLink = "Document No." = FIELD("No.");
