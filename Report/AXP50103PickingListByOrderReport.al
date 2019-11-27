@@ -97,7 +97,7 @@ report 50103 "AXP Picking List by Order"
                         column(ShipToAddress_7_; ShipToAddress[7])
                         {
                         }
-                        column(Sales_Header___Shipment_Date_; "Sales Header"."Shipment Date")
+                        column(Sales_Header___Requested_Delivery_Date_; "Sales Header"."Requested Delivery Date")
                         {
                         }
                         column(Address_1_; Address[1])
@@ -163,7 +163,7 @@ report 50103 "AXP Picking List by Order"
                         column(Sales_Header___Sell_to_Customer_No__Caption; Sales_Header___Sell_to_Customer_No__CaptionLbl)
                         {
                         }
-                        column(Sales_Header___Shipment_Date_Caption; Sales_Header___Shipment_Date_CaptionLbl)
+                        column(Sales_Header__Requested_Delivery_Date_Caption; Sales_Header___Requested_Delivery_Date_CaptionLbl)
                         {
                         }
                         column(SalesPurchPerson_NameCaption; SalesPurchPerson_NameCaptionLbl)
@@ -235,7 +235,7 @@ report 50103 "AXP Picking List by Order"
                             column(Sales_Line_Description; Description)
                             {
                             }
-                            column(EmptyString; '')
+                            column(EmptyString; '                   ')
                             {
                             }
                             column(Sales_Line__Variant_Code_; "Variant Code")
@@ -476,7 +476,7 @@ report 50103 "AXP Picking List by Order"
         CurrReport_PAGENOCaptionLbl: TextConst ENU = 'Page:', ESM = 'Pág.:', FRC = 'Page :', ENC = 'Page:';
         Sales_Line__Outstanding_Quantity_CaptionLbl: TextConst ENU = 'Back Ordered', ESM = 'Pedido pendiente', FRC = 'Commandé en retard', ENC = 'Back Ordered';
         Sales_Header___Sell_to_Customer_No__CaptionLbl: TextConst ENU = 'Customer No:', ESM = 'Nº cliente:', FRC = 'N° de client :', ENC = 'Customer No:';
-        Sales_Header___Shipment_Date_CaptionLbl: TextConst ENU = 'Shipment Date:', ESM = 'Fecha envío:', FRC = 'Date de livraison :', ENC = 'Shipment Date:';
+        Sales_Header___Requested_Delivery_Date_CaptionLbl: TextConst ENU = 'Requested Delivery Date:', ESM = 'Fecha envío:', FRC = 'Date de livraison :', ENC = 'Shipment Date:';
         SalesPurchPerson_NameCaptionLbl: TextConst ENU = 'Salesperson:', ESM = 'Vendedor:', FRC = 'Représentant :', ENC = 'Salesperson:';
         Sales_Line_QuantityCaptionLbl: TextConst ENU = 'Quantity Ordered', ESM = 'Cantidad pedida', FRC = 'Quantité commandée', ENC = 'Quantity Ordered';
         Ship_To_CaptionLbl: TextConst ENU = 'Ship To:', ESM = 'Enviar a:', FRC = 'Livrer à :', ENC = 'Ship To:';
