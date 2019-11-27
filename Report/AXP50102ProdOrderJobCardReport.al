@@ -249,6 +249,6 @@ report 50102 "AXP Prod. Order - Job Card"
         SalesHeaderRequestedDeliveryDateCaptLbl: Label 'Requested Delivery Date';
         CustomerNo_SalesHeader: Text[20];
         ReqDeliveryDate_SalesHeader: Date;
-        ProdOrderSourceNoCapt: Label 'Source No.';
+        ProdOrderSourceNoCapt: Label 'Sales Order No.';
 }
 
