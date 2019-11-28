@@ -24,6 +24,13 @@
       "name": "Barcode Generator",
       "publisher": "Insight Works"
 
+    },
+    {
+      "appId": "1cb24b6b-2b05-4a81-83fd-2fa82ededbe7",
+      "version": "1.0.0.201911181",
+      "name": "Spring-Fill AL Extension",
+      "publisher": "Dynamics Southwest, Inc."
+
     }
   ],
   "screenshots": [],

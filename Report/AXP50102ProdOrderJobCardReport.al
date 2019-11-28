@@ -8,7 +8,7 @@ report 50102 "AXP Prod. Order - Job Card"
                 ESM = 'Ord. prod. - Ficha trabajo',
                 FRC = 'Bon de production - Fiche de projet',
                 ENC = 'Prod. Order - Job Card';
-
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem("Production Order"; "Production Order")
@@ -21,6 +21,13 @@ report 50102 "AXP Prod. Order - Job Card"
             column(No_ProdOrder; "No.")
             {
             }
+            //DSWsc - 9/17/19 - Bar code
+            column(Barcode; '*' + FORMAT("No.") + '*')
+            {
+            }
+            column(BarcodeBlob; TempBlob.Blob)
+            {
+            }
             dataitem(Integer; Integer)
             {
                 DataItemTableView = SORTING(Number)
@@ -31,7 +38,7 @@ report 50102 "AXP Prod. Order - Job Card"
                 column(CompanyName; COMPANYPROPERTY.DISPLAYNAME)
                 {
                 }
-                column(ProdOrderTableCaptionFilt; "Production Order".TABLECAPTION + ':' + ProdOrderFilter)
+                column(ProdOrderTableCaptionFilt; 'Production Order:' + ProdOrderFilter)
                 {
                 }
                 column(ProdOrderFilter; ProdOrderFilter)
@@ -166,6 +173,16 @@ report 50102 "AXP Prod. Order - Job Card"
                     {
                         IncludeCaption = true;
                     }
+                    //DSWsc - 9/17/19 - Added Description
+                    column(Desc_ProdOrderComp; Description)
+                    {
+                        IncludeCaption = true;
+                    }
+                    column(UofM_ProdOrderComp; "Unit of Measure Code")
+                    {
+                        IncludeCaption = true;
+                    }
+                    //DSWsc - 9/17/19 - Added Description
                     column(OrderNo_ProdOrderComp; "Prod. Order No.")
                     {
                     }
@@ -189,7 +206,11 @@ report 50102 "AXP Prod. Order - Job Card"
             var
                 ProdOrderRoutingLine: Record 5409;
                 SalesHeader: Record 36;
+                BarCodeMgmt: Codeunit DSW_BarcodeMgmt;     //DSWsc - 9/17/19
+                BarCode: Code[100];
             begin
+                BarCode := format("No.");                               //DSWsc - 9/17/19
+                BarCodeMgmt.DoGenerateBarcode(BarCode, 0, TempBlob);    //DSWsc - 9/17/19
                 ProdOrderRoutingLine.SETRANGE(Status, Status);
                 ProdOrderRoutingLine.SETRANGE("Prod. Order No.", "No.");
                 IF NOT ProdOrderRoutingLine.FINDFIRST THEN
@@ -250,5 +271,6 @@ report 50102 "AXP Prod. Order - Job Card"
         CustomerNo_SalesHeader: Text[20];
         ReqDeliveryDate_SalesHeader: Date;
         ProdOrderSourceNoCapt: Label 'Sales Order No.';
+        TempBlob: Record TempBlob temporary;   //DSWsc - 9/17/19
 }
 
