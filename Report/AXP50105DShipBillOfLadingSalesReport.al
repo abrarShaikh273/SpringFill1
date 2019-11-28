@@ -32,6 +32,9 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
             column(ShipToCountry; "Sales Header"."Ship-to Country/Region Code")
             {
             }
+            column(ShipToState; "Sales Header"."Ship-to County")
+            {
+            }
             column(ShipToContact; "Sales Header"."Ship-to Contact")
             {
             }
@@ -105,6 +108,9 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
                 {
                 }
                 column(LocationPostCode; Location."Post Code")
+                {
+                }
+                column(LocationState; Location.County)
                 {
                 }
                 column(LocationCountry; Location."Country/Region Code")
