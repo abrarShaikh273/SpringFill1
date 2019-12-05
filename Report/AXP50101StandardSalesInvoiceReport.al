@@ -1132,14 +1132,14 @@ report 50101 "AXP Standard Sales - Invoice"
                 IF "Language Code" = '' THEN
                     IF EnvInfoProxy.IsInvoicing() THEN BEGIN
                         "Language Code" := LanguageCU.GetUserLanguageCode();
-                        CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                        CurrReport.LANGUAGE := LanguageCU.GetLanguageIdOrDefault("Language Code");
                     END;
 
                 IF NOT EnvInfoProxy.IsInvoicing() THEN BEGIN
-                    IF GLOBALLANGUAGE = Language.GetLanguageID("Language Code") THEN
-                        CurrReport.LANGUAGE := Language.GetLanguageID("Language Code")
+                    IF GLOBALLANGUAGE = LanguageCU.GetLanguageIdOrDefault("Language Code") THEN
+                        CurrReport.LANGUAGE := LanguageCU.GetLanguageIdOrDefault("Language Code")
                     ELSE
-                        CurrReport.LANGUAGE := Language.GetLanguageID('ENU');
+                        CurrReport.LANGUAGE := LanguageCU.GetLanguageIdOrDefault('ENU');
                 END;
 
                 FillLeftHeader;
