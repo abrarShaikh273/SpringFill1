@@ -102,6 +102,8 @@ report 50102 "AXP Prod. Order - Job Card"
                 {
                     IncludeCaption = true;
                 }
+                //--AXP START--
+                //Adding new columns to dataset
                 column(CustomerNo_SalesHeader; CustomerNo_SalesHeader)
                 {
                 }
@@ -111,6 +113,7 @@ report 50102 "AXP Prod. Order - Job Card"
                 column(ProdOrderSourceNoCaptLbl2; ProdOrderSourceNoCapt)
                 {
                 }
+                //--AXP END--
                 column(ProdOrderRtngLnStrtDtCapt; ProdOrderRtngLnStrtDtCaptLbl)
                 {
                 }
@@ -216,6 +219,8 @@ report 50102 "AXP Prod. Order - Job Card"
                 IF NOT ProdOrderRoutingLine.FINDFIRST THEN
                     CurrReport.SKIP;
 
+                //--AXP START-- 
+                //Setting Requested Delivery date and Customer no from Sales Header
                 CLEAR(ReqDeliveryDate_SalesHeader);
                 CLEAR(CustomerNo_SalesHeader);
 
@@ -224,7 +229,8 @@ report 50102 "AXP Prod. Order - Job Card"
                         CustomerNo_SalesHeader := SalesHeader."Sell-to Customer No.";
                         ReqDeliveryDate_SalesHeader := SalesHeader."Requested Delivery Date";
                     END;
-                END
+                END;
+                //--AXP END--
             end;
 
             trigger OnPreDataItem();
@@ -266,11 +272,11 @@ report 50102 "AXP Prod. Order - Job Card"
         ByCaptionLbl: TextConst ENU = 'By', ESM = 'Por', FRC = 'Par', ENC = 'By';
         EmptyStringCaptionLbl: TextConst ENU = '___________', ESM = '___________', FRC = '___________', ENC = '___________';
         MaterialRequirementsCaptLbl: TextConst ENU = 'Material Requirements', ESM = 'Necesidades material', FRC = 'Réquisitions de matériel', ENC = 'Material Requirements';
-        SalesHeaderCustomerNoCaptLbl: Label 'Customer No.';
-        SalesHeaderRequestedDeliveryDateCaptLbl: Label 'Requested Delivery Date';
-        CustomerNo_SalesHeader: Text[20];
-        ReqDeliveryDate_SalesHeader: Date;
-        ProdOrderSourceNoCapt: Label 'Sales Order No.';
+        SalesHeaderCustomerNoCaptLbl: Label 'Customer No.'; //-AXP Variables
+        SalesHeaderRequestedDeliveryDateCaptLbl: Label 'Requested Delivery Date'; //-AXP Variables
+        CustomerNo_SalesHeader: Text[20]; //-AXP Variables
+        ReqDeliveryDate_SalesHeader: Date; ////-AXP Variables
+        ProdOrderSourceNoCapt: Label 'Sales Order No.'; //-AXP Variables
     //TempBlob: Record TempBlob temporary;   //DSWsc - 9/17/19
 }
 
