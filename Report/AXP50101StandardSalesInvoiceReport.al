@@ -667,11 +667,11 @@ report 50101 "AXP Standard Sales - Invoice"
                         CLEAR(CompanyInfo.Picture);
                     FirstLineHasBeenOutput := TRUE;
 
-                    IF ("Job No." <> '') AND (NOT PermissionManager.SoftwareAsAService) THEN
+                    IF ("Job No." <> '') AND (NOT EnvironmentInformation.IsSaaS()) THEN
                         JobNo := ''
                     ELSE
                         JobNo := "Job No.";
-                    IF ("Job Task No." <> '') AND (NOT PermissionManager.SoftwareAsAService) THEN
+                    IF ("Job Task No." <> '') AND (NOT EnvironmentInformation.IsSaaS()) THEN
                         JobTaskNo := ''
                     ELSE
                         JobTaskNo := "Job Task No.";
@@ -1130,12 +1130,12 @@ report 50101 "AXP Standard Sales - Invoice"
                 IdentityManagement: Codeunit 9801;
             begin
                 IF "Language Code" = '' THEN
-                    IF IdentityManagement.IsInvAppId THEN BEGIN
-                        "Language Code" := Language.GetUserLanguage;
+                    IF EnvInfoProxy.IsInvoicing() THEN BEGIN
+                        "Language Code" := LanguageCU.GetUserLanguageCode();
                         CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
                     END;
 
-                IF NOT IdentityManagement.IsInvAppId THEN BEGIN
+                IF NOT EnvInfoProxy.IsInvoicing() THEN BEGIN
                     IF GLOBALLANGUAGE = Language.GetLanguageID("Language Code") THEN
                         CurrReport.LANGUAGE := Language.GetLanguageID("Language Code")
                     ELSE
@@ -1337,6 +1337,9 @@ report 50101 "AXP Standard Sales - Invoice"
         FormatAddr: Codeunit 365;
         FormatDocument: Codeunit 368;
         SegManagement: Codeunit 5051;
+        EnvironmentInformation: codeunit 457;
+        EnvInfoProxy: codeunit 9995;
+        LanguageCU: codeunit 43;
         JobNo: Code[20];
         JobTaskNo: Code[20];
         PostedShipmentDate: Date;
@@ -1549,7 +1552,7 @@ report 50101 "AXP Standard Sales - Invoice"
                 TempLineFeeNoteOnReportHist.INSERT;
             UNTIL LineFeeNoteOnReportHist.NEXT = 0;
         END ELSE BEGIN
-            LineFeeNoteOnReportHist.SETRANGE("Language Code", Language.GetUserLanguage);
+            LineFeeNoteOnReportHist.SETRANGE("Language Code", LanguageCU.GetUserLanguageCode());
             IF LineFeeNoteOnReportHist.FINDSET THEN
                 REPEAT
                     TempLineFeeNoteOnReportHist.INIT;

@@ -940,7 +940,7 @@ report 50100 "Standard Sales - Order new"
                 IF NOT CurrReport.PREVIEW THEN
                     CODEUNIT.RUN(CODEUNIT::"Sales-Printed", Header);
 
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := LanguageCU.GetLanguageIdOrDefault("Language Code");
 
                 CALCFIELDS("Work Description");
                 ShowWorkDescription := "Work Description".HASVALUE;
@@ -1135,6 +1135,7 @@ report 50100 "Standard Sales - Order new"
         Cust: Record 18;
         RespCenter: Record 5714;
         Language: Record 8;
+        LanguageCU: Codeunit 43;
         VATClause: Record 560;
         AsmHeader: Record 900;
         TempBlobWorkDescription: Record 99008535;

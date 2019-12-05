@@ -370,18 +370,33 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Image Name="BarcodeImg3">
-                          <Source>Database</Source>
-                          <Value>=Fields!BarcodeBlob.Value</Value>
-                          <MIMEType>image/bmp</MIMEType>
-                          <Sizing>Fit</Sizing>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
-                        </Image>
+                        </Textbox>
                         <ColSpan>5</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -4858,9 +4873,6 @@ End Function
         </Field>
         <Field Name="Barcode">
           <DataField>Barcode</DataField>
-        </Field>
-        <Field Name="BarcodeBlob">
-          <DataField>BarcodeBlob</DataField>
         </Field>
         <Field Name="TodayFormatted">
           <DataField>TodayFormatted</DataField>

@@ -679,7 +679,7 @@ report 50104 "AXP Standard Purchase - Order"
                     PurchasePostPrepayments.CalcVATAmountLines("Purchase Header", TempPrepmtPurchLine, TempPrepmtVATAmountLine, 0);
                     TempPrepmtVATAmountLine.DeductVATAmountLine(TempPrePmtVATAmountLineDeduct);
                     PurchasePostPrepayments.UpdateVATOnLines("Purchase Header", TempPrepmtPurchLine, TempPrepmtVATAmountLine, 0);
-                    PurchasePostPrepayments.BuildInvLineBuffer2("Purchase Header", TempPrepmtPurchLine, 0, TempPrepaymentInvLineBuffer);
+                    PurchasePostPrepayments.BuildInvLineBuffer("Purchase Header", TempPrepmtPurchLine, 0, TempPrepaymentInvLineBuffer);
                     PrepmtVATAmount := TempPrepmtVATAmountLine.GetTotalVATAmount;
                     PrepmtVATBaseAmount := TempPrepmtVATAmountLine.GetTotalVATBase;
                     PrepmtTotalAmountInclVAT := TempPrepmtVATAmountLine.GetTotalAmountInclVAT;
@@ -949,7 +949,7 @@ report 50104 "AXP Standard Purchase - Order"
                 TotalSubTotal := 0;
                 TaxAmount := 0;
                 TotalInvoiceDiscountAmount := 0;
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := LanguageCU.GetLanguageIdOrDefault("Language Code");
                 CLEAR(BreakdownTitle);
                 CLEAR(BreakdownLabel);
                 CLEAR(BreakdownAmt);
@@ -1123,6 +1123,7 @@ report 50104 "AXP Standard Purchase - Order"
         TaxArea: Record 318;
         RespCenter: Record 5714;
         Language: Record 8;
+        LanguageCU: Codeunit 43;
         CurrExchRate: Record 330;
         PurchSetup: Record 312;
         FormatAddr: Codeunit 365;
