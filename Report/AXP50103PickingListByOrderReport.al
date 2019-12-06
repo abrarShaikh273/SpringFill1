@@ -100,9 +100,10 @@ report 50103 "AXP Picking List by Order"
                         column(Sales_Header___Requested_Delivery_Date_; "Sales Header"."Requested Delivery Date")
                         {
                         }
-
-
                         column(Sales_Header___Shipment_Date_; "Sales Header"."Shipment Date")
+                        {
+                        }
+                        column(Sales_Header___ExternalDocNo; "Sales Header"."External Document No.")
                         {
                         }
                         column(Address_1_; Address[1])

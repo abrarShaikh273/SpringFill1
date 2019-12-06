@@ -1489,9 +1489,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>2</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
@@ -1517,10 +1518,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>3</ColSpan>
+                        <ColSpan>2</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
@@ -1638,41 +1638,45 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox19">
+                        <Textbox Name="ShippingAgent_NameCaption3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!ShippingAgent_NameCaption.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <rd:DefaultName>ShippingAgent_NameCaption</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox21">
+                        <Textbox Name="ShippingAgent_Name3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!ShippingAgent_Name.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -1681,96 +1685,18 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <rd:DefaultName>ShippingAgent_Name</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <ColSpan>2</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox33">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox33</rd:DefaultName>
-                          <Style>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox34">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox34</rd:DefaultName>
-                          <Style>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox37">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox37</rd:DefaultName>
-                          <Style>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
+                    <TablixCell />
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Sales_Header__Requested_Delivery_Date_Caption2">
@@ -1889,24 +1815,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox245">
+                        <Textbox Name="Textbox73">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PaymentTerms_DescriptionCaption.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox245</rd:DefaultName>
+                          <rd:DefaultName>Textbox73</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingBottom>2pt</PaddingBottom>
@@ -1918,13 +1845,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="textbox32">
+                        <Textbox Name="Textbox78">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PaymentTerms_Description.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -1933,7 +1861,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>textbox32</rd:DefaultName>
+                          <rd:DefaultName>Textbox78</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1947,14 +1875,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ShippingAgent_NameCaption3">
+                        <Textbox Name="Textbox9">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ShippingAgent_NameCaption.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -1965,7 +1893,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ShippingAgent_NameCaption</rd:DefaultName>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingBottom>2pt</PaddingBottom>
@@ -1978,14 +1906,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ShippingAgent_Name2">
+                        <Textbox Name="Textbox24">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ShippingAgent_Name.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -1994,7 +1922,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ShippingAgent_Name</rd:DefaultName>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3758,10 +3686,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.16542in</Top>
-              <Left>6.16232in</Left>
+              <Left>6.60975in</Left>
               <Height>0.16654in</Height>
-              <Width>1.98622in</Width>
+              <Width>0.96564in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <PaddingLeft>2pt</PaddingLeft>
@@ -3895,8 +3822,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.16542in</Top>
-              <Left>5.16232in</Left>
+              <Left>5.59638in</Left>
               <Height>0.16654in</Height>
               <Width>0.94393in</Width>
               <ZIndex>9</ZIndex>
@@ -3957,6 +3883,64 @@
               <Height>0.16654in</Height>
               <Width>1.98622in</Width>
               <ZIndex>11</ZIndex>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="textbox69">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>PO#:</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.08277in</Top>
+              <Left>4.53732in</Left>
+              <Height>0.16654in</Height>
+              <Width>1.53768in</Width>
+              <ZIndex>12</ZIndex>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="textbox51">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Fields!Sales_Header___ExternalDocNo.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Format>d</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>textbox44</rd:DefaultName>
+              <Top>1.08277in</Top>
+              <Left>6.14444in</Left>
+              <Height>0.16654in</Height>
+              <Width>1.98622in</Width>
+              <ZIndex>13</ZIndex>
               <Style>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
@@ -4138,6 +4122,9 @@ End Function
         </Field>
         <Field Name="Sales_Header___Shipment_Date_">
           <DataField>Sales_Header___Shipment_Date_</DataField>
+        </Field>
+        <Field Name="Sales_Header___ExternalDocNo">
+          <DataField>Sales_Header___ExternalDocNo</DataField>
         </Field>
         <Field Name="Address_1_">
           <DataField>Address_1_</DataField>

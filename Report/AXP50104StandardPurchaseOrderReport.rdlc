@@ -407,6 +407,9 @@ End Function
         <Field Name="ShiptoAddress_Lbl">
           <DataField>ShiptoAddress_Lbl</DataField>
         </Field>
+        <Field Name="BilltoAddress_Lbl">
+          <DataField>BilltoAddress_Lbl</DataField>
+        </Field>
         <Field Name="SellToCustNo_PurchHeader_Lbl">
           <DataField>SellToCustNo_PurchHeader_Lbl</DataField>
         </Field>

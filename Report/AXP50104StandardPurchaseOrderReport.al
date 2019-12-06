@@ -363,6 +363,9 @@ report 50104 "AXP Standard Purchase - Order"
             column(ShiptoAddress_Lbl; ShiptoAddressCaptionLbl)
             {
             }
+            column(BilltoAddress_Lbl; BilltoAddressCaptionLbl)
+            {
+            }
             column(SellToCustNo_PurchHeader_Lbl; FIELDCAPTION("Sell-to Customer No."))
             {
             }
@@ -1086,6 +1089,7 @@ report 50104 "AXP Standard Purchase - Order"
         VendorInvoiceNo_Lbl: TextConst ENU = 'Vendor Invoice No.';
         VendorOrderNo_Lbl: TextConst ENU = 'Vendor Order No.';
         ShiptoAddressCaptionLbl: TextConst ENU = 'Ship-to Address', ESM = 'Dirección de envío', FRC = 'Adresse de livraison', ENC = 'Ship-to Address';
+        BilltoAddressCaptionLbl: TextConst ENU = 'Bill-to Address';
         PrepmtInvBuDescCaptionLbl: TextConst ENU = 'Description', ESM = 'Descripción', FRC = 'Description', ENC = 'Description';
         PrepmtInvBufGLAccNoCaptionLbl: TextConst ENU = 'G/L Account No.', ESM = 'Nº cuenta', FRC = 'N° de compte du grand livre', ENC = 'G/L Account No.';
         PrepaymentSpecCaptionLbl: TextConst ENU = 'Prepayment Specification', ESM = 'Especificación anticipo', FRC = 'Spécification de paiement anticipé', ENC = 'Prepayment Specification';
