@@ -4,10 +4,10 @@ report 50104 "AXP Standard Purchase - Order"
 
     RDLCLayout = './Report/AXP50104StandardPurchaseOrderReport.rdlc';
     WordLayout = './Report/AXP50104StandardPurchaseOrderReport.docx';
-    CaptionML = ENU = 'Purchase - Order',
-                ESM = 'Compra - Pedido',
-                FRC = 'Achat - Commande',
-                ENC = 'Purchase - Order';
+    CaptionML = ENU = 'AXP Purchase - Order',
+                ESM = 'AXP Compra - Pedido',
+                FRC = 'AXP Achat - Commande',
+                ENC = 'AXP Purchase - Order';
     DefaultLayout = Word;
     EnableHyperlinks = true;
     PreviewMode = PrintLayout;

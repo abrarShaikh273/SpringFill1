@@ -1,13 +1,13 @@
-report 50100 "Standard Sales - Order new"
+report 50100 "AXP Standard Sales - Order"
 {
     // version NAVW111.00,NAVNA11.00
 
     //RDLCLayout = './Standard Sales - Order Conf..rdlc';
     WordLayout = './Report/AXP50100OrderConfirmationReport.docx';
-    CaptionML = ENU = 'Sales - Confirmation',
-                ESM = 'Venta - Confirmación',
-                FRC = 'Ventes - Confirmation',
-                ENC = 'Sales - Confirmation';
+    CaptionML = ENU = 'AXP Sales - Confirmation',
+                ESM = 'AXP Venta - Confirmación',
+                FRC = 'AXP Ventes - Confirmation',
+                ENC = 'AXP Sales - Confirmation';
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
     WordMergeDataItem = Header;

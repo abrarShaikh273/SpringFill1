@@ -4,10 +4,10 @@ report 50102 "AXP Prod. Order - Job Card"
 
     DefaultLayout = RDLC;
     RDLCLayout = './Report/AXP50102ProdOrderJobCardReport.rdlc';
-    CaptionML = ENU = 'Prod. Order - Job Card',
-                ESM = 'Ord. prod. - Ficha trabajo',
-                FRC = 'Bon de production - Fiche de projet',
-                ENC = 'Prod. Order - Job Card';
+    CaptionML = ENU = 'AXP Prod. Order - Job Card',
+                ESM = 'AXP Ord. prod. - Ficha trabajo',
+                FRC = 'AXP Bon de production - Fiche de projet',
+                ENC = 'AXP Prod. Order - Job Card';
     UsageCategory = ReportsAndAnalysis;
     dataset
     {

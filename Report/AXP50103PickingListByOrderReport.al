@@ -4,10 +4,10 @@ report 50103 "AXP Picking List by Order"
 
     DefaultLayout = RDLC;
     RDLCLayout = './Report/AXP50103PickingListByOrderReport.rdlc';
-    CaptionML = ENU = 'Picking List by Order',
-                ESM = 'List. picking por ped.',
-                FRC = 'Bon de cueillette par commande',
-                ENC = 'Picking List by Order';
+    CaptionML = ENU = 'AXP Picking List by Order',
+                ESM = 'AXP List. picking por ped.',
+                FRC = 'AXP Bon de cueillette par commande',
+                ENC = 'AXP Picking List by Order';
 
     dataset
     {

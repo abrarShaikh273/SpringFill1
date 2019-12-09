@@ -4,7 +4,7 @@ report 50101 "AXP Standard Sales - Invoice"
 
     //RDLCLayout = './Standard Sales - Invoice.rdlc';
     WordLayout = './Report/AXP50101StandardSalesInvoiceReport.docx';
-    Caption = 'Sales - Invoice';
+    Caption = 'AXP Sales - Invoice';
     DefaultLayout = Word;
     EnableHyperlinks = true;
     Permissions = TableData 7190 = rimd;
