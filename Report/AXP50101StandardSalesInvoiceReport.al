@@ -10,6 +10,7 @@ report 50101 "AXP Standard Sales - Invoice"
     Permissions = TableData 7190 = rimd;
     PreviewMode = PrintLayout;
     WordMergeDataItem = Header;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

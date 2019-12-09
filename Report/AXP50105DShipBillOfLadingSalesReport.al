@@ -5,6 +5,7 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
     DefaultLayout = RDLC;
     RDLCLayout = 'Report/AXP50105DShipBillOfLadingSalesReport.rdlc';
     Caption = 'AXP Dynamic Ship Bill of Lading-Sales';
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

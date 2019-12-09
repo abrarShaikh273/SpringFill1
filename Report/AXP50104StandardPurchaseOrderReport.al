@@ -12,7 +12,7 @@ report 50104 "AXP Standard Purchase - Order"
     EnableHyperlinks = true;
     PreviewMode = PrintLayout;
     WordMergeDataItem = "Purchase Header";
-
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")

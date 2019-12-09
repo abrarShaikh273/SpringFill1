@@ -8,7 +8,7 @@ report 50103 "AXP Picking List by Order"
                 ESM = 'AXP List. picking por ped.',
                 FRC = 'AXP Bon de cueillette par commande',
                 ENC = 'AXP Picking List by Order';
-
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem(Location; Location)

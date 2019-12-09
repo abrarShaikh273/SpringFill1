@@ -11,6 +11,7 @@ report 50100 "AXP Standard Sales - Order"
     DefaultLayout = Word;
     PreviewMode = PrintLayout;
     WordMergeDataItem = Header;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {
