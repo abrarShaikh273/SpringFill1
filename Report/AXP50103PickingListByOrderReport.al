@@ -420,6 +420,7 @@ report 50103 "AXP Picking List by Order"
                                     ENC = 'Number of Copies';
                         MaxValue = 9;
                         MinValue = 0;
+                        ApplicationArea = All;
                     }
                 }
             }
