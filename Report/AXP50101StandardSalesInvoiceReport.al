@@ -699,18 +699,18 @@ report 50101 "AXP Standard Sales - Invoice"
                             ItemCrossReference.SetFilter("Cross-Reference Type", '%1', "Cross-Reference Type"::Customer);
                             ItemCrossReference.SetFilter("Cross-Reference Type No.", '%1', Header."Bill-to Customer No.");
                             if ItemCrossReference.FindFirst() then
-                                CrossReferenceNo := ItemCrossReference."Cross-Reference No."
-                            else begin
-                                ItemCrossReference.Reset();
-                                ItemCrossReference.SetRange("Item No.", "No.");
-                                if ItemCrossReference.FindFirst() then
-                                    CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
-                            end;
-
-                        end
-                        else
-                            if ItemCrossReference.FindFirst() then
                                 CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                            // else begin
+                            //     ItemCrossReference.Reset();
+                            //     ItemCrossReference.SetRange("Item No.", "No.");
+                            //     if ItemCrossReference.FindFirst() then
+                            //         CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
+                            // end;
+
+                        end;
+                        // else
+                        //     if ItemCrossReference.FindFirst() then
+                        //         CrossReferenceNo := ItemCrossReference."Cross-Reference No.";
                     end;
                 end;
 
@@ -1469,7 +1469,7 @@ report 50101 "AXP Standard Sales - Invoice"
         EXIT(SalesInvoiceNoLbl);
     end;
 
-    [Scope('Personalization')]
+    //[Scope('Personalization')]
     procedure InitializeRequest(NewLogInteraction: Boolean; DisplayAsmInfo: Boolean)
     begin
         LogInteraction := NewLogInteraction;

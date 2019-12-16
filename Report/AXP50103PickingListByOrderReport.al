@@ -497,7 +497,7 @@ report 50103 "AXP Picking List by Order"
         ShippingAgentName_CaptionLbl: Label 'Shipping Agent:';
         ShippingAgent_Name: Text[100];
 
-    [Scope('Personalization')]
+    //[Scope('Personalization')]
     procedure AnySalesLinesThisLocation(LocationCode: Code[10]): Boolean;
     var
         SalesLine2: Record 37;

@@ -1216,7 +1216,7 @@ report 50104 "AXP Standard Purchase - Order"
         OrderDateLbl: TextConst ENU = 'Order Date', ESM = 'Fecha de orden', FRC = 'Date commande', ENC = 'Order Date';
         PurchLineDelivDateCaptLbl: Label 'Delivery Date';
 
-    [Scope('Personalization')]
+    //[Scope('Personalization')]
     procedure InitializeRequest(LogInteractionParam: Boolean);
     begin
         LogInteraction := LogInteractionParam;
