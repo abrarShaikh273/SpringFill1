@@ -172,7 +172,7 @@ report 50101 "AXP Standard Sales - Invoice"
             column(ShipmentMethodDescription_Lbl; ShptMethodDescLbl)
             {
             }
-            column(ShipmentDate; FORMAT("Shipment Date", 0, 4))
+            column(ShipmentDate; FORMAT(HeaderPostingDate, 0, 4))
             {
             }
             column(ShipmentDate_Lbl; FIELDCAPTION("Shipment Date"))
@@ -1129,6 +1129,7 @@ report 50101 "AXP Standard Sales - Invoice"
                 CurrencyExchangeRate: Record 330;
                 PaymentServiceSetup: Record 1060;
                 IdentityManagement: Codeunit 9801;
+                SalesShipmentHeader: Record "Sales Shipment Header";
             begin
                 IF "Language Code" = '' THEN
                     IF EnvInfoProxy.IsInvoicing() THEN BEGIN
@@ -1198,6 +1199,14 @@ report 50101 "AXP Standard Sales - Invoice"
                 TotalAmountVAT := 0;
                 TotalAmountInclVAT := 0;
                 TotalPaymentDiscOnVAT := 0;
+
+                //AXP - Get Posting Date from SalesShipment via Order Number reference
+                //Using FindLast to get the last inserted SalesShipment entry(latest)
+                IF Header."Order No." <> '' THEN BEGIN
+                    SalesShipmentHeader.SetFilter("Order No.", Header."Order No.");
+                    IF SalesShipmentHeader.FindLast() THEN
+                        HeaderPostingDate := SalesShipmentHeader."Posting Date";
+                END;
             end;
 
             trigger OnPreDataItem()
@@ -1422,6 +1431,7 @@ report 50101 "AXP Standard Sales - Invoice"
         LineAmountLbl: Label 'Line Amount';
         ItemCrossReference: Record "Item Cross Reference";
         CrossReferenceNo: code[20];
+        HeaderPostingDate: Date;
 
     local procedure InitLogInteraction()
     begin
