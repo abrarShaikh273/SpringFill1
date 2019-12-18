@@ -1,4 +1,4 @@
-report 50102 "AXP Prod. Order - Job Card"
+report 50102 "AXP Prod. Order - Job Card (u)"
 {
     // version NAVW111.00,NAVNA11.00
 
@@ -25,9 +25,10 @@ report 50102 "AXP Prod. Order - Job Card"
             column(Barcode; '*' + FORMAT("No.") + '*')
             {
             }
-            // column(BarcodeBlob; Blob)
-            // {
-            // }
+            //column(BarcodeBlob; TempBlob.Blob)
+            column(BarcodeBlob; TempTenantMedia.Content)
+            {
+            }
             dataitem(Integer; Integer)
             {
                 DataItemTableView = SORTING(Number)
@@ -104,13 +105,22 @@ report 50102 "AXP Prod. Order - Job Card"
                 }
                 //--AXP START--
                 //Adding new columns to dataset
-                column(CustomerNo_SalesHeader; CustomerNo_SalesHeader)
+                column(CustomerName_SalesHeader; CustomerName_SalesHeader)
                 {
                 }
                 column(ReqDeliveryDate_SalesHeader; FORMAT(ReqDeliveryDate_SalesHeader))
                 {
                 }
+                column(ExternalDocNo_SalesHeader; ExternalDocNo_SalesHeader)
+                {
+                }
+                column(SalesOrderNo_SalesHeader; SalesOrderNo_SalesHeader)
+                {
+                }
                 column(ProdOrderSourceNoCaptLbl2; ProdOrderSourceNoCapt)
+                {
+                }
+                column(ExternalDocNoCapt; ExternalDocNoCapt)
                 {
                 }
                 //--AXP END--
@@ -209,11 +219,14 @@ report 50102 "AXP Prod. Order - Job Card"
             var
                 ProdOrderRoutingLine: Record 5409;
                 SalesHeader: Record 36;
-                //BarCodeMgmt: Codeunit DSW_BarcodeMgmt;     //DSWsc - 9/17/19
+                BarCodeMgmt: Codeunit DSW_BarcodeMgmt;     //DSWsc - 9/17/19
                 BarCode: Code[100];
+                SalesOrderNoCode: Code[20];
             begin
-                BarCode := format("No.");                               //DSWsc - 9/17/19
-                //BarCodeMgmt.DoGenerateBarcode(BarCode, 0, TempBlob);    //DSWsc - 9/17/19
+                BarCode := format("No.");                                   //DSWsc - 9/17/19
+                //BarCodeMgmt.DoGenerateBarcode(BarCode, 0, TempBlob);      //DSWsc - 9/17/19
+                BarCodeMgmt.DoGenerateBarcode(BarCode, 0, TempTenantMedia); //DSWsc - 9/17/19
+
                 ProdOrderRoutingLine.SETRANGE(Status, Status);
                 ProdOrderRoutingLine.SETRANGE("Prod. Order No.", "No.");
                 IF NOT ProdOrderRoutingLine.FINDFIRST THEN
@@ -222,16 +235,26 @@ report 50102 "AXP Prod. Order - Job Card"
                 //--AXP START-- 
                 //Setting Requested Delivery date and Customer no from Sales Header
                 CLEAR(ReqDeliveryDate_SalesHeader);
-                CLEAR(CustomerNo_SalesHeader);
+                CLEAR(CustomerName_SalesHeader);
+                CLEAR(ExternalDocNo_SalesHeader);
+                CLEAR(SalesOrderNoCode);
+                Clear(SalesOrderNo_SalesHeader);
+                SalesHeader.Init();
 
-                IF "Production Order"."Source Type" = "Production Order"."Source Type"::"Sales Header" THEN BEGIN
-                    IF SalesHeader.GET(SalesHeader."Document Type"::Order, "Production Order"."Source No.") THEN BEGIN
-                        CustomerNo_SalesHeader := SalesHeader."Sell-to Customer No.";
-                        ReqDeliveryDate_SalesHeader := SalesHeader."Requested Delivery Date";
-                    END;
-                END;
-                //--AXP END--
-            end;
+                IF StrLen("Production Order"."Description 2") <= 20 then begin
+                    Evaluate(SalesOrderNoCode, "Production Order"."Description 2");
+                end;
+                // SalesHeader.SetFilter("Document Type", Format(SalesHeader."Document Type"::Order));
+                // SalesHeader.SetFilter("No.", "Production Order"."Description 2");
+                // IF SalesHeader.FindFirst() THEN BEGIN
+                IF SalesHeader.Get(SalesHeader."Document Type"::Order, SalesOrderNoCode) then begin
+                    CustomerName_SalesHeader := SalesHeader."Sell-to Customer Name";
+                    ReqDeliveryDate_SalesHeader := SalesHeader."Requested Delivery Date";
+                    ExternalDocNo_SalesHeader := SalesHeader."External Document No.";
+                    SalesOrderNo_SalesHeader := SalesHeader."No.";
+                end;
+            END;
+            //--AXP END--
 
             trigger OnPreDataItem();
             begin
@@ -272,11 +295,16 @@ report 50102 "AXP Prod. Order - Job Card"
         ByCaptionLbl: TextConst ENU = 'By', ESM = 'Por', FRC = 'Par', ENC = 'By';
         EmptyStringCaptionLbl: TextConst ENU = '___________', ESM = '___________', FRC = '___________', ENC = '___________';
         MaterialRequirementsCaptLbl: TextConst ENU = 'Material Requirements', ESM = 'Necesidades material', FRC = 'Réquisitions de matériel', ENC = 'Material Requirements';
-        SalesHeaderCustomerNoCaptLbl: Label 'Customer No.'; //-AXP Variables
+        SalesHeaderCustomerNoCaptLbl: Label 'Customer Name'; //-AXP Variables
         SalesHeaderRequestedDeliveryDateCaptLbl: Label 'Requested Delivery Date'; //-AXP Variables
-        CustomerNo_SalesHeader: Text[20]; //-AXP Variables
-        ReqDeliveryDate_SalesHeader: Date; ////-AXP Variables
         ProdOrderSourceNoCapt: Label 'Sales Order No.'; //-AXP Variables
-    //TempBlob: Record TempBlob temporary;   //DSWsc - 9/17/19
+        ExternalDocNoCapt: Label 'PO#'; //-AXP Variables
+        CustomerName_SalesHeader: Text[100]; //-AXP Variables
+        ReqDeliveryDate_SalesHeader: Date; ////-AXP Variables
+        ExternalDocNo_SalesHeader: Text[50]; //-AXP Variables
+        SalesOrderNo_SalesHeader: Text[20]; //-AXP Variables
+
+        //TempBlob: Record TempBlob temporary;   //DSWsc - 9/17/19
+        TempTenantMedia: Record "Tenant Media" temporary;
 }
 
