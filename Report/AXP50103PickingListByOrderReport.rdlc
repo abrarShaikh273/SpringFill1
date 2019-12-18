@@ -357,9 +357,12 @@
                             </Paragraph>
                           </Paragraphs>
                           <Visibility>
-                            <Hidden>=Code.SetData(Fields!Sales_Header_Document_Type.Value+Chr(177)+Fields!Sales_Header_No_.Value+Chr(177)+Cstr(Fields!LocationLoop_Number.Value)+Chr(177)+Cstr(Fields!myCopyNo.Value)+Chr(177)+Cstr(Fields!TempLocation_Code.Value)+Chr(177)+Cstr(Fields!Sales_Header___Order_Date_.Value))</Hidden>
+                            <Hidden>=Code.SetData(Fields!Sales_Header_Document_Type.Value+Chr(177)+Fields!Sales_Header_No_.Value+Chr(177)+Cstr(Fields!LocationLoop_Number.Value)+Chr(177)+Cstr(Fields!myCopyNo.Value)+Chr(177)+Cstr(Fields!TempLocation_Code.Value)+Chr(177)+Cstr(Fields!Sales_Header___Order_Date_.Value)+Chr(177)+Cstr(Fields!Sales_Header___ExternalDocNo.Value)+Chr(177)+Cstr(Fields!Sales_Header___Shipment_Date_.Value))</Hidden>
                           </Visibility>
                           <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingBottom>2pt</PaddingBottom>
@@ -1698,7 +1701,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>3</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -3817,7 +3819,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Sales_Header___Shipment_Date_.Value</Value>
+                      <Value>=Code.GetData(8)</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <Format>d</Format>
@@ -3836,6 +3838,9 @@
               <Width>1.98622in</Width>
               <ZIndex>11</ZIndex>
               <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingBottom>2pt</PaddingBottom>
@@ -3875,7 +3880,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Sales_Header___ExternalDocNo.Value</Value>
+                      <Value>=Code.GetData(7)</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <Format>d</Format>
@@ -3894,6 +3899,9 @@
               <Width>1.98622in</Width>
               <ZIndex>13</ZIndex>
               <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingBottom>2pt</PaddingBottom>
