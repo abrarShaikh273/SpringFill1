@@ -72,9 +72,11 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
             column(BillToCountry; "Sales Header"."Bill-to Country/Region Code")
             {
             }
-            column(BillToState; BillToState)
+            //AXP 20191223
+            column(BillToState; "Sales Header"."Bill-to County")
             {
             }
+            //AXP 20191223
             column(ShipmentMethodCode; "Shipment Method Code")
             {
             }
@@ -129,8 +131,8 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
                 IF lrecShipToAddress.Get("Sell-to Customer No.", "Ship-to Code") then
                     ShipToZipCode := lrecShipToAddress."Post Code";
 
-                IF lrecShipToAddress.Get("Bill-to Customer No.", "Ship-to Code") then
-                    BillToState := lrecShipToAddress.County;
+                //IF lrecShipToAddress.Get("Bill-to Customer No.", "Ship-to Code") then
+                    //BillToState := lrecShipToAddress.County;
 
                 if (optSourceDocument = optSourceDocument::"Warehouse Shipment") then begin
                     if (lrecShipmentHeader.GET(codSourceNo)) then begin
@@ -218,7 +220,7 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
         txtCarrierName: Text;
 
         ShipToZipCode: Text;
-        BillToState: Text;
+        //BillToState: Text;
 
     procedure setSourceDocument(poptSourceDocument: Option "Sales Order","Sales Return Order","Purchase Order","Purchase Return Order","Outbound Transfer","Service Order","Warehouse Shipment"; pcodSourceNo: Code[50]);
     begin
