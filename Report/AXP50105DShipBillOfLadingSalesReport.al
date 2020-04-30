@@ -132,7 +132,7 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
                     ShipToZipCode := lrecShipToAddress."Post Code";
 
                 //IF lrecShipToAddress.Get("Bill-to Customer No.", "Ship-to Code") then
-                    //BillToState := lrecShipToAddress.County;
+                //BillToState := lrecShipToAddress.County;
 
                 if (optSourceDocument = optSourceDocument::"Warehouse Shipment") then begin
                     if (lrecShipmentHeader.GET(codSourceNo)) then begin
@@ -148,16 +148,16 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
                     end;
             end;
         }
-        dataitem("LPM License Plate Header"; "IWX License Plate Header")
+        dataitem("LPM License Plate Header"; "IWX LP Header")
         {
-            CalcFields = "Source Document", "Source No.";
+            //CalcFields = "Source Document", "Source No.";
             column(LicensePlateNo; "LPM License Plate Header"."No.")
             {
             }
             column(LicensePlateDescription; "LPM License Plate Header".Description)
             {
             }
-            column(LicensePlateInsurance; "LPM License Plate Header"."Insurance Amount (LCY)")
+            column(LicensePlateInsurance; "LPM License Plate Header"."Insurance Amount")// "Insurance Amount (LCY)")
             {
             }
             column(ShipmentLength; "LPM License Plate Header"."Shipment Length")
@@ -220,7 +220,7 @@ report 50105 "AXP DSHIP Bill of Lading-Sales"
         txtCarrierName: Text;
 
         ShipToZipCode: Text;
-        //BillToState: Text;
+    //BillToState: Text;
 
     procedure setSourceDocument(poptSourceDocument: Option "Sales Order","Sales Return Order","Purchase Order","Purchase Return Order","Outbound Transfer","Service Order","Warehouse Shipment"; pcodSourceNo: Code[50]);
     begin

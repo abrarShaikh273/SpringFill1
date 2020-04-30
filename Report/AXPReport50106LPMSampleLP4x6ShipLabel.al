@@ -11,7 +11,7 @@ report 50106 "AXP LPM Sample LP 4x6 Ship Lab"
 
     dataset
     {
-        dataitem("License Plate Header"; "IWX License Plate Header")
+        dataitem("License Plate Header"; "IWX LP Header")
         {
             RequestFilterFields = "No.", "Shipment No.";
             column(LicensePlateHeader_Barcode; trecBarcodeBlob.Blob)
@@ -33,7 +33,7 @@ report 50106 "AXP LPM Sample LP 4x6 Ship Lab"
             column(LicensePlateHeader_ShippedItemCount; "License Plate Header"."Shipped Item Count")
             {
             }
-            column(LicensePlateHeader_PackageTrackngNumber; "License Plate Header"."Package Tracking Number")
+            column(LicensePlateHeader_PackageTrackngNumber; "License Plate Header"."Package Tracking No.")//"Package Tracking Number")
             {
             }
             column(codSourceNo; codSourceNo)
