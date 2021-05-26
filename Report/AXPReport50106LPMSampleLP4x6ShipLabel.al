@@ -6,7 +6,7 @@
 report 50106 "AXP LPM Sample LP 4x6 Ship Lab"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = 'Report/AXP50106LPMSampleLP4x6ShipLab.rdlc';
+    RDLCLayout = 'Report/AXP50106LPMSampleLP4x6ShipLab.rdl';
     Caption = 'Sample LP 4x6 Ship Label';
 
     dataset
@@ -118,7 +118,7 @@ report 50106 "AXP LPM Sample LP 4x6 Ship Lab"
                     codSourceNo := "Shipped Source No.";
 
                 //create barcode
-                lcuBarcodeManagement.get2dBarCode(trecBarcodeBlob, StrSubstNo('*%LP%%1*', "License Plate Header"."No."), iBarcodeDotSize, iBarcodeMarginSize, iBarcodeImageSize);
+                lcuBarcodeManagement.get2dBarCode(trecBarcodeBlobCU, StrSubstNo('*%LP%%1*', "License Plate Header"."No."), iBarcodeDotSize, iBarcodeMarginSize, iBarcodeImageSize);
             end;
         }
     }
@@ -154,6 +154,7 @@ report 50106 "AXP LPM Sample LP 4x6 Ship Lab"
     var
         recCompanyInfo: Record "Company Information";
         trecBarcodeBlob: Record TempBlob temporary;
+        trecBarcodeBlobCU: Codeunit "Temp Blob";
         codSourceNo: Code[20];
         codPackageTrackingNo: Code[30];
         iBarcodeDotSize: Integer;

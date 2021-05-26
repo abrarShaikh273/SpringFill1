@@ -2,7 +2,7 @@
   "id": "a8d5e4e4-010d-4864-8ad3-0b4d3ffe4f43",
   "name": "AXP Reports",
   "publisher": "AX Pulse",
-  "version": "1.0.0.2020043002",
+  "version": "1.0.1.321052601",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -19,35 +19,35 @@
     },
     {
       "appId": "ba1776ba-1198-4b4c-a61e-c4612f1880d5",
-      "version": "1.6.18179.3",
+      "version": "2.3.7578.0",
       "name": "IWorks Common",
       "publisher": "Insight Works"
 
     },
     {
       "appId": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
-      "version": "15.0.36626.38549",
+      "version": "17.0.0.0",
       "name": "System Application",
       "publisher": "Microsoft"
 
     },
     {
       "appId": "437dbf0e-84ff-417a-965d-ed2bb9650972",
-      "version": "15.0.36626.38549",
+      "version": "17.0.0.0",
       "name": "Base Application",
       "publisher": "Microsoft"
 
     },
     {
       "appId": "a0b5e9f5-6a4a-4867-aa3e-4b87c8c1c660",
-      "version": "3.3.7243.0",
+      "version": "3.4.7360.0",
       "name": "Advanced Inventory Count",
       "publisher": "Insight Works"
 
     }
   ],
   "screenshots": [],
-  "platform": "15.0.0.0",
+  "platform": "17.0.0.0",
   "idRanges": [
     {
       "from": 50100,
